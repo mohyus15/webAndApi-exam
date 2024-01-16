@@ -4,7 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node backend/src/server.js",
+    "install-backend": "npm install --prefix backend",
+    "install-frontend": "npm install --prefix frontend",
+    "install": "npm run install-backend && npm run install-frontend",
+    "backend": "npm run --prefix backend/src/server.js",
+    "frontend": "npm start --prefix frontend",
+    "dev": "npm run backend & npm run frontend",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
+    "deploy": "npm run build --prefix frontend && npm start --prefix backend",
+    "deploy-cluster": "npm run build --prefix frontend && npm run cluster --prefix backend",
+    "data:import": "node backend/src/seeder.js",
+    "data:remove": "node backend/src/seeder.js -d",
+    "test": "npm test --prefix backend && npm test --prefix frontend"
   },
   "author": "",
   "license": "ISC"
