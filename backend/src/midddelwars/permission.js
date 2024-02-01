@@ -1,4 +1,4 @@
-const User = require('../models/usersModel.js');
+const User = require('../models/usersModel');
 const jwt = require('jsonwebtoken');
 const secret = 'BESTAPP2023';
 

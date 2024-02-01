@@ -1,6 +1,10 @@
-const User = require('../models/usersModel.js');
+const User = require("../models/usersModel")
 const bcrypt = require('bcryptjs');
-
+const jwt = require('jsonwebtoken');
+const secret = "secret"
+const createToken = (_id) => {
+	return jwt.sign({ _id }, secret, { expiresIn: '3d' });
+  };
 const getAllUsers = async (req, res) => {
 	const users = await User.find({});
 	try {
@@ -9,22 +13,23 @@ const getAllUsers = async (req, res) => {
 		res.status(404).json('you can not get the all users');
 	}
 };
-
 const authUser = async (req, res) => {
 	const { email, password } = req.body;
 	const user = await User.findOne({ email });
-	const userId = user._id.toString();
 	const match = await bcrypt.compare(
 		password,
 		user.password
 	);
 
 	if (match) {
+		const token = createToken(user._id);
+		console.log('token', token);
 		res.json({
 			_id: user._id,
-			name: user.name,
 			email: user.email,
 			isAdmin: user.isAdmin,
+			token
+
 		});
 	} else {
 		res.status(401);
@@ -35,36 +40,41 @@ const authUser = async (req, res) => {
 const RegisterUser = async (req, res) => {
 	const { name, email, password } = req.body;
 	try {
-		const userExist = await User.findOne({ email });
-		if (userExist) {
-			res.status(400);
-			throw new Error('user allredy exist');
-		}
-		const salt = await bcrypt.genSalt(10);
-		const hash = await bcrypt.hash(password, salt);
-		const userId = req.user._id;
-
-		const user = await User.create({
-			name,
-			email,
-			password: hash,
+	  const userExist = await User.findOne({ email });
+  
+	  if (userExist) {
+		res.status(400);
+		throw new Error('User already exists');
+	  }
+  
+	  const salt = await bcrypt.genSalt(10);
+	  const hash = await bcrypt.hash(password, salt);
+  
+	  const user = await User.create({
+		name,
+		email,
+		password: hash,
+	  });
+  
+	  const token = createToken(user._id);  
+	  if (user) {
+		res.status(201).json({
+		  _id: user._id,
+		  name: user.name,
+		  email: user.email,
+		  isAdmin: user.isAdmin,
+		  token: token,
 		});
+	  } else {
+		res.status(400);
+		throw new Error('Invalid user data');
+	  }
+	} catch (error) {
+	  console.error(error);
+	  res.status(500).json({ message: 'Internal Server Error' });
+	}
+  };
 
-		if (user) {
-			res.status(201).json({
-				_id: user._id,
-				name: user.name,
-				email: user.email,
-				isAdmin: user.isAdmin,
-			});
-		} else {
-			res.status(400);
-			throw new Error('Invalid user data');
-		}
-	} catch (error) {}
-};
-
-// logout and clear token from http only
 const loggOut = async (req, res) => {
 	try {
 		res.cookie('jwt', '', {

@@ -1,4 +1,4 @@
-const Product = require('../models/productModels.js');
+const Product = require("../models/productModels");
 const createProduct = async (req, res) => {
   const { name, image, brand, category, description, price, countInStock } =
     req.body;
@@ -22,33 +22,6 @@ const createProduct = async (req, res) => {
   }
 };
 
-const createProductsReview = async (req, res) => {
-  const { rating, comment } = req.body;
-  const reviewProducts = await Product.findById(req.params.id);
-  const allredyReviewed = reviewProducts.reviews.find(
-    (reviews) => reviews.user.toString() === req.user._id.toString()
-  );
-  if (allredyReviewed) {
-    res.status(400).json('product i allready reviewed');
-
-    const notReviwedBefor = {
-      name: req.user.name,
-      rating: Number(rating),
-      comment,
-      user: req.user._id,
-    };
-    reviewProducts.reviews.push(notReviwedBefor);
-    reviewProducts.numreviews = reviewProducts.reviews.length;
-    reviewProducts.rating =
-      reviewProducts.reviews.reducer((acc, revie) => acc + revie.rating, 0) /
-      reviewProducts.reviews.length;
-    await reviewProducts.save();
-    res.status(201).json('review is created');
-  } else {
-    res.status(400);
-    throw new Error('there is no reviw');
-  }
-};
 
 const deleteProduct = async (req, res) => {
   const product = await Product.findById(req.params.id);
@@ -107,6 +80,5 @@ module.exports = {
   getProductsById,
   createProduct,
   getProducts,
-  createProductsReview,
   getTopProducts,
 };

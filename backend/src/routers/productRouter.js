@@ -2,7 +2,6 @@ const {
   getProducts,
   getProductsById,
   createProduct,
-  createProductsReview,
   deleteProduct,
   getTopProducts,
 } = require('../controllers/productController.js');
@@ -10,7 +9,7 @@ const express = require('express');
 const { admin, protect } = require('../midddelwars/permission.js');
 
 const productRouter = express.Router();
-productRouter.post('/:id/review', protect, createProductsReview);
+productRouter.post('/:id/review', protect);
 productRouter.get('/top', getTopProducts);
 productRouter.post('/', createProduct);
 productRouter.get('/', getProducts);

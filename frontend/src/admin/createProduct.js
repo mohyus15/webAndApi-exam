@@ -2,7 +2,17 @@ import React from 'react'
 
 function CreateProduct() {
   return (
-    <div>createProduct</div>
+    <div>createProduc
+      
+      fsfdasfasfs
+      sdfsdf
+
+      sddfsdfds
+      fsfdasfasfssf
+      sd
+      
+      t</div>
+    
   )
 }
 

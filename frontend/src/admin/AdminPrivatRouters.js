@@ -1,9 +1,14 @@
-import React from "react";
-import { Outlet, Navigate } from "react-router-dom";
+import React, { useContext } from 'react';
+import { Outlet, Navigate } from 'react-router-dom';
+import { authContext } from '../store/userContext';
+const AdminPrivateRoutes = () => {
+  const { user } = useContext(authContext);
 
-const AdminPrivatRouters = () => {
-  const { userInfo } = useSelector((state) => state.auth);
-  return userInfo && userInfo.isAdmin ? <Outlet /> : <Navigate to="/login" />;
+  return user && user.isAdmin ? (
+    <Outlet />
+  ) : (
+    <Navigate to="/login" />
+  );
 };
 
-export default AdminPrivatRouters;
+export default AdminPrivateRoutes;

@@ -1,17 +1,13 @@
 import React from "react";
-import { Row, Col, Container } from "react-bootstrap";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="py-10">
-      <Container>
-        <Row>
-          <Col className="text-center py-3">
-            <p>eShop &copy;{currentYear}</p>
-          </Col>
-        </Row>
-      </Container>
+    <footer className="py-10" style={{ position: "fixed", bottom: 0, width: "100%", backgroundColor: "#f8f9fa" }}>
+      <div className="text-center py-3">
+        <p>my website &copy;{currentYear}</p>
+      </div>
     </footer>
   );
 }
