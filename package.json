@@ -19,5 +19,8 @@
     "test": "npm test --prefix backend && npm test --prefix frontend"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "npm-watch": "^0.11.0"
+  }
 }

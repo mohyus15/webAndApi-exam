@@ -8,8 +8,10 @@ const NODE_ENV = "production";
 
 
 //manger roles
-const productRouter = require("./routers/productRouter.js");
-const userRouters = require("./routers/userRouters.js");
+const productRouter = require('./routers/productRouter.js');
+const userRouters = require('./routers/userRouters.js');
+const ChatRoute = require('./routers/ChatRoute.js');
+const MessageRoute = require('./routers/MessageRoute.js');
 
 
 const app = express();
@@ -31,6 +33,8 @@ app.use(bodyParser.json());
 
 app.use("/api/products", productRouter);
 app.use("/api/users", userRouters);
+app.use('/api/chat', ChatRoute)
+app.use('/api/message', MessageRoute)
 if (NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/frontend/build")));
   app.get("/*", (req, res) => {

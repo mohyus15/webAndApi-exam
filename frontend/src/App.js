@@ -5,14 +5,16 @@ import { Route, Routes } from 'react-router-dom';
 import AdminPrivatRouters from './admin/AdminPrivatRouters'
 import CreateProduct from './admin/createProduct'
 import Login from './components/login'
-import Register from './components/register'
+import Signup from './components/signup'
 import HomePage from './components/home';
 import Userslist from './admin/userslist'
 import ProductListAdmin from './admin/productListAdmin';
-import Chatbox from './admin/chatbox';
 import PrivatRouters from './components/PrivatRouters';
 import Anonse from './components/Anonse'
-import Chat from './components/chat';
+import Profile from './components/profile'
+import Message from './admin/Message';
+import MessageForUsers from './components/MessageForUsers';
+import UpdateUser from './admin/update'; 
 
 function App() {
   return (
@@ -23,18 +25,16 @@ function App() {
      <Route path="/" element={<HomePage />}/>
 
      <Route path="/login" element={<Login />} />
-     <Route path="/register" element={<Register />}/>
+     <Route path="/signup" element={<Signup/>}/>
 
      private router
      <Route path="" element={<PrivatRouters />}>
-     <Route
-								path="/components/Anonse"
-								element={<Anonse />}
-							/>
-<Route
-								path="/components/chat"
-								element={<Chat/>}
-							/>
+     <Route path="/components/Anonse" element={<Anonse />}/>
+    <Route path="/components/profile"element={<Profile/>}/>
+    <Route path="/components/MessageForUsers"element={<MessageForUsers/>}/>
+
+
+   
 
 
      </Route>
@@ -45,15 +45,17 @@ function App() {
 
      <Route path="/userslist" element={<Userslist />}/>
      <Route path="/productListAdmin" element={<ProductListAdmin />}/>
-     <Route path="/admin/chatbox" element={<Chatbox />}/>
+     <Route path="/admin/Message"element={<Message/>}/>
+     <Route path="/update/:userId" element={<UpdateUser />} />
 
+     
      </Route>
   
 
      </Routes>
     </div>
     
-    <Footer />
+  
     </>
   );
 }

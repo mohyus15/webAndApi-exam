@@ -5,10 +5,12 @@ const { mangoConnect } = require('./utils/database.js');
 const port = process.env.PORT || 8080;
 const mode = process.env.NODE_ENV;
 const server = http.createServer(app);
-const { Server } = require("socket.io");
-const io = new Server(server);
+//const { Server } = require("socket.io");
+//const io = new Server(server);
 
 
+
+/*
 
 
 io.on('connection', (socket) => {
@@ -23,9 +25,9 @@ const socketServer = async () => {
 };
 
 socketServer();
+*/
 
 
-/*
 const startServer = async () => {
   await mangoConnect();
   server.listen(port, () => {
@@ -33,9 +35,3 @@ const startServer = async () => {
   });
 };
 startServer();
-*/
-
-
-
-
-

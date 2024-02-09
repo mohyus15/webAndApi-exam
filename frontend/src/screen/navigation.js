@@ -35,7 +35,7 @@ function Navigation() {
                 <Link to="/admin/createProduct">
                   <FaPlus /> Create Product
                 </Link>
-                <Link to="/admin/chatbox">
+                <Link to="/admin/Message">
                   <FaInbox /> Inbox
                 </Link>
                 <button onClick={logOutHandler} className="logout-btn">
@@ -55,10 +55,13 @@ function Navigation() {
                 <Link to="/components/Anonse">
                   Anonse
                 </Link>
-				<Link to="/components/chat">
+                <Link to="/components/profile">
+                  your profile
+                </Link>
+                <Link to="/components/MessageForUsers">
+                
                   chat with admin
                 </Link>
-
                 <button onClick={logOutHandler} className="logout-btn">
                   Logout
                 </button>
