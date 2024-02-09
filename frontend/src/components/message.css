@@ -1,78 +1,52 @@
-/* message.css */
+.chatbox {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: auto;
+}
 
-.user-component-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-  
-  .user-component {
-    text-align: center;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px; /* Set a maximum width for better readability */
-    margin: auto; /* Center the user-component within its container */
-  }
-  
-  .user-component h2 {
-    color: #333;
-  }
-  
-  .user-component label {
-    display: block;
-    margin: 10px 0;
-    font-weight: bold;
-  }
-  
-  .user-component input,
-  .user-component textarea {
-    width: 100%;
-    padding: 8px;
-    margin: 6px 0;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .user-component textarea {
-    height: 100px;
-    resize: none;
-  }
-  
-  .user-component button {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .user-component button:hover {
-    background-color: #45a049;
-  }
-  
-  .user-component div {
-    margin-top: 20px;
-  }
-  
-  .user-component ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .user-component li {
-    margin-bottom: 8px;
-    padding: 8px;
-    border: 1px solid #eee;
-    border-radius: 4px;
-    background-color: #f9f9f9;
-  }
-  
-  .user-component li:last-child {
-    margin-bottom: 0;
-  }
-  
+.chatbox-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.chatbox-header h2 {
+  margin: 0;
+  color: #333;
+}
+
+.chatbox-messages {
+  height: 200px; /* Adjust height as needed */
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.chatbox-input {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.message-input {
+  flex: 1;
+  padding: 8px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+}
+
+.send-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background-color: #45a049;
+}

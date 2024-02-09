@@ -41,7 +41,7 @@ const UserTable = () => {
 
   return (
     <div>
-      <h2>User Table</h2>
+      <h2>User list</h2>
       <table className="user-table">
         <thead>
           <tr>

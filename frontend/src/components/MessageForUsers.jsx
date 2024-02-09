@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import io from "socket.io-client";
 import { authContext } from '../store/userContext';
-import "../components/message.css"; 
+import "../components/message.css";
 
 const socket = io("http://localhost:8000");
 
@@ -27,11 +27,10 @@ const UserComponent = () => {
     };
 
     fetchData();
-  }, []);
+  }, [userData]); // Add userData as dependency
 
   const handleSendMessage = async () => {
     try {
-     
       for (const receiverUser of userData) {
         const receiverId = receiverUser._id;
         socket.emit("sendMessage", { senderId: user._id, receiverId, text: message });
@@ -54,23 +53,26 @@ const UserComponent = () => {
   };
 
   return (
-    <div className="user-component-container">
-      <div className="user-component">
-        <h2>Send message to admin</h2>
-    
-        <label htmlFor="message">Message:</label>
+    <div className="chatbox">
+      <div className="chatbox-header">
+        <h2>Chat with Admin</h2>
+      </div>
+      <div className="chatbox-messages">
+        {/* Display messages here */}
+      </div>
+      <div className="chatbox-input">
         <textarea
           id="message"
+          className="message-input"
           type="text"
+          placeholder="Type your message..."
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
-        <button onClick={handleSendMessage}>Send Message</button>
-       
+        <button className="send-button" onClick={handleSendMessage}>Send</button>
       </div>
     </div>
   );
 };
 
 export default UserComponent;
-
