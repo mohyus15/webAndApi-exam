@@ -4,10 +4,9 @@ import { authContext } from '../store/userContext';
 import { useNavigate } from "react-router-dom";
 import { login } from '../store/types';
 
-
 function Login() {
-  const {dispatch } = useContext(authContext);
-  const navigate = useNavigate()
+  const { dispatch } = useContext(authContext);
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -46,40 +45,59 @@ function Login() {
   };
   
   return (
-    <div className="sign-up-container">
-    <form onSubmit={handleSubmit} className="sign-up-form">
-      <div className="form-group">
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <button type="submit" className="sign-up-button">
-       login
-      </button>
-      <Link to="/signup" className="login-link">
-        create an acount
-      </Link>
-    </form>
-  </div>
-  )
+    <div style={{
+      maxWidth: "400px",
+      margin: "auto",
+      padding: "20px",
+      border: "1px solid #ccc",
+      borderRadius: "8px",
+      boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+      marginTop: "200px"
+    }}>
+      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column" }} className="sign-up-form">
+        <div className="form-group" style={{ marginBottom: "15px" }}>
+          <label htmlFor="email" style={{ fontWeight: "bold", marginBottom: "5px" }}>Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            style={{
+              padding: "8px",
+              width: "100%",
+              boxSizing: "border-box",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+              fontSize: "14px"
+            }}
+          />
+        </div>
+        <div className="form-group" style={{ marginBottom: "15px" }}>
+          <label htmlFor="password" style={{ fontWeight: "bold", marginBottom: "5px" }}>Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+            style={{
+              padding: "8px",
+              width: "100%",
+              boxSizing: "border-box",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+              fontSize: "14px"
+            }}
+          />
+        </div>
+        <button type="submit" style={{ backgroundColor: "#4caf50", color: "#fff", padding: "10px", border: "none", borderRadius: "4px", cursor: "pointer" }}>Login</button>
+        <Link to="/signup" style={{ marginTop: "10px", textAlign: "center", textDecoration: "none", color: "#007bff", display: "block" }}>Create an account</Link>
+      </form>
+    </div>
+  );
 }
 
-
-export default Login
+export default Login;
