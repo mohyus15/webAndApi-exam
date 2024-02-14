@@ -1,38 +1,30 @@
-name: CI/CD with Azure
+name: web and api exam
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x]
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
+      - name: Use Node.js version ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
+      - name: Install dependencies and build frontend
         run: |
           npm install
-          npm install --prefix frontend
-
-      - name: Build
-        run: npm run build --prefix frontend
-
-      - name: Azure Login
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      - name: Azure Web App Deploy
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'your-web-app-name'
-          package: .
+          npm run build --prefix frontend
+          npm run test
