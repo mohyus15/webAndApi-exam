@@ -8,7 +8,7 @@ import { useContext } from 'react';
 
 const UserTable = () => {
   const [users, setUsers] = useState([]);
-  const { userId } = useParams();
+  //const { userId } = useParams();
   const { dispatch } = useContext(authContext);
 
   useEffect(() => {

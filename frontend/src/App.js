@@ -1,6 +1,5 @@
 import './App.css';
 import Navbar from "../src/screen/navigation"
-import Footer from './components/footer';
 import { Route, Routes } from 'react-router-dom';
 import AdminPrivatRouters from './admin/AdminPrivatRouters'
 import CreateProduct from './admin/createProduct'
