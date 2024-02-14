@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const secret = "secret";
 
 const createToken = (_id) => {
-    return jwt.sign({ _id }, secret, { expiresIn: '3d' });
+    return jwt.sign({ _id }, secret, { expiresIn: '90d' });
 };
 
 const getAllUsers = async (req, res) => {
@@ -50,7 +50,6 @@ const authUser = async (req, res) => {
 const RegisterUser = async (req, res) => {
     const { name, email, password } = req.body;
 
-    // Check if email is provided
     if (!email) {
         return res.status(400).json('Email is required' );
     }
