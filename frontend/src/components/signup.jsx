@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { sign_up } from "../api/api";
 import { authContext } from '../store/userContext';
 import { register } from "../store/types";
-import "./signup.css";
+import './signup.css';
+//
 
 
 const SignUp = () => {
