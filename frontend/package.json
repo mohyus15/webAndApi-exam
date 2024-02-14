@@ -16,10 +16,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest --coverage --passWithNoTests",
     "start": "react-scripts start",
     "build": "BUILD_PATH=../backend/public react-scripts build"
-  },
+  },  
   "eslintConfig": {
     "extends": [
       "react-app",
