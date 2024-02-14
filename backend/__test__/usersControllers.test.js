@@ -1,21 +1,16 @@
 const request = require('supertest');
 const app = require('../src/app.js');
 const bcrypt = require('bcryptjs'); 
+const { mongooseConnect, mongooseDisconnect } = require('../src/utils/database.js');
 
-const {
-    mangoDidsconnect,
-    mangoConnect,
-} = require('../src/utils/database.js');
-
-describe('Test CRUD operations for /api/users', () => {
+describe('Test CRUD operations for /api/messages', () => {
     beforeAll(async () => {
-        await mangoConnect();
+        await mongooseConnect();
     });
 
     afterAll(async () => {
-        await mangoDidsconnect();
+        await mongooseDisconnect();
     });
-
     let userId; 
 
     const userData = {
@@ -34,7 +29,7 @@ describe('Test CRUD operations for /api/users', () => {
         .post('/api/users')
         .send(userDataWithOutData);
 
-    expect(response.status).toBe(500); // Assuming server responds with 500 for missing data
+    expect(response.status).toBe(400); // Server should respond with 400 for incomplete data
 });
     test('Create a new user - POST /api/users', async () => {
         const response = await request(app)
