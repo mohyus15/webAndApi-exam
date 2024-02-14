@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './UserTable.css'; // Import the CSS file
 import UpdateButton from './UpdateUserPage';
-import { useParams } from 'react-router-dom';
 import { authContext } from '../store/userContext';
 import { delete_user } from '../store/types';
 import { useContext } from 'react';
