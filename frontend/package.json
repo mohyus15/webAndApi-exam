@@ -19,7 +19,7 @@
     "test": "jest --coverage --passWithNoTests",
     "start": "react-scripts start",
     "build": "BUILD_PATH=../backend/public react-scripts build"
-  },  
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -47,6 +47,7 @@
     "@babel/preset-env": "^7.23.9",
     "@babel/preset-react": "^7.23.3",
     "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "react-scripts": "^5.0.1"
   },
   "jest": {
