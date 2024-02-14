@@ -1,4 +1,4 @@
-name: web and api exam
+name: Build and Test
 
 on:
   push:
@@ -19,18 +19,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Use Node.js version ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - name: Cache dependencies
+        uses: actions/cache@v2
         with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Use MongoDB ${{ matrix.mongodb-version }} from GitHub actions
-        uses: supercharge/mongodb-github-action@1.6.0
-        with:
-          mongodb-version: ${{ matrix.mongodb-version }}
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Install dependencies and build frontend
         run: |
-          npm install
+          npm install --prefix backend
+          npm install --prefix frontend
           npm run build --prefix frontend
-          npm run test
+          npm run test --prefix backend && npm run test --prefix frontend

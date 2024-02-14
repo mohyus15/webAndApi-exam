@@ -15,7 +15,7 @@ describe('Test CRUD operations for /api/messages', () => {
 
     const userData = {
         name: 'Test User1',
-        email: 'testuser1@example.com',
+        email: 'testuser2@example.com',
         password: bcrypt.hashSync('123456', 10),
         isAdmin: false,
     };
