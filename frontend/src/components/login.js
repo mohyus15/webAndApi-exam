@@ -11,6 +11,7 @@ function Login() {
     email: '',
     password: '',
   });
+  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,20 +31,22 @@ function Login() {
           password: formData.password,
         }),
       });
-  
+
       if (response.ok) {
         const res = await response.json();
         localStorage.setItem('user', JSON.stringify(res));
         dispatch({ type: login, payload: res });
         navigate('/login');
       } else {
-        console.error('Error registering user');
+        const errorMessage = await response.text(); 
+        setError(errorMessage); 
       }
     } catch (error) {
       console.error('Network error:', error);
+      setError('Network error: Unable to connect to the server'); 
     }
   };
-  
+
   return (
     <div style={{
       maxWidth: "400px",
@@ -93,8 +96,10 @@ function Login() {
             }}
           />
         </div>
+      
         <button type="submit" style={{ backgroundColor: "#4caf50", color: "#fff", padding: "10px", border: "none", borderRadius: "4px", cursor: "pointer" }}>Login</button>
         <Link to="/signup" style={{ marginTop: "10px", textAlign: "center", textDecoration: "none", color: "#007bff", display: "block" }}>Create an account</Link>
+        {error && <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>} 
       </form>
     </div>
   );

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const MONGO_URL = process.env.MONGO_URL;
+const mongo_url = 'mongodb+srv://mohyus20:OGH2RHHNWhlZXHeQ@db.6tlp7p3.mongodb.net/webAndApi?retryWrites=true&w=majority';
 mongoose.connection.once('open', async () => {
     console.log('MongoDB connection is ready');
 });
@@ -10,8 +10,9 @@ mongoose.connection.on('error', async err => {
 
 const mongooseConnect = async () => {
     await mongoose.connect(
-        'mongodb+srv://webandapi:webandapi@cluster0.rzbtnrs.mongodb.net/exam?retryWrites=true&w=majority'
+       mongo_url
     );
+
 
     mongoose.set('strictQuery', true);
 };

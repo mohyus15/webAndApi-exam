@@ -13,7 +13,7 @@ const getAllUsers = async (req, res) => {
         res.status(200).json(users);
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Internal Server Error' });
+        res.status(500).json('Invalid email or password' );
     }
 };
 
@@ -23,7 +23,7 @@ const authUser = async (req, res) => {
         const user = await User.findOne({ email });
 
         if (!user) {
-            res.status(401).json({ message: 'Invalid email or password' });
+            res.status(401).json('Invalid email or password' );
             return;
         }
 
@@ -39,11 +39,11 @@ const authUser = async (req, res) => {
                 token
             });
         } else {
-            res.status(401).json({ message: 'Invalid email or password' });
+            res.status(401).json('Invalid email or password' );
         }
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Internal Server Error' });
+        res.status(500).json('Internal Server Error' );
     }
 };
 
@@ -52,7 +52,7 @@ const RegisterUser = async (req, res) => {
 
     // Check if email is provided
     if (!email) {
-        return res.status(400).json({ message: 'Email is required' });
+        return res.status(400).json('Email is required' );
     }
 
     try {
@@ -60,7 +60,7 @@ const RegisterUser = async (req, res) => {
         const userExist = await User.findOne({ email });
 
         if (userExist) {
-            return res.status(400).json({ message: 'User already exists' });
+            return res.status(400).json('User already exists' );
         }
 
         // Hash the password
@@ -87,7 +87,7 @@ const RegisterUser = async (req, res) => {
         });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Internal Server Error' });
+        res.status(500).json( 'Internal Server Error' );
     }
 };
 
@@ -98,10 +98,10 @@ const loggOut = async (req, res) => {
             httpOnly: true,
             expire: new Date(0),
         });
-        res.status(200).json({ message: 'Logged out successfully' });
+        res.status(200).json( 'Logged out successfully' );
     } catch (error) {
         console.error(error);
-        res.status(401).json({ message: 'Not logged out' });
+        res.status(401).json('Not logged out' );
     }
 };
 
@@ -116,11 +116,11 @@ const getUserProfile = async (req, res) => {
                 isAdmin: user.isAdmin,
             });
         } else {
-            res.status(404).json({ message: 'User not found' });
+            res.status(404).json( 'User not found' );
         }
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Internal Server Error' });
+        res.status(500).json( 'Internal Server Error' );
     }
 };
 
@@ -143,7 +143,7 @@ const updateUserProfile = async (req, res) => {
         });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Internal Server Error' });
+        res.status(500).json( 'Internal Server Error' );
     }
 };
 
@@ -153,11 +153,11 @@ const getUseById = async (req, res) => {
         if (userById) {
             res.status(200).json(userById);
         } else {
-            res.status(404).json({ message: 'User not found' });
+            res.status(404).json( 'User not found' );
         }
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Internal Server Error' });
+        res.status(500).json( 'Internal Server Error' );
     }
 };
 
@@ -166,17 +166,17 @@ const DeleteUser = async (req, res) => {
         const user = await User.findById(req.params.id);
         if (user) {
             if (user.isAdmin) {
-                res.status(404).json({ message: 'Cannot delete admin' });
+                res.status(404).json( 'Cannot delete admin' );
             } else {
                 await User.deleteOne({ _id: user._id });
-                res.status(200).json({ message: 'User deleted successfully' });
+                res.status(200).json( 'User deleted successfully' );
             }
         } else {
-            res.status(404).json({ message: 'User not found' });
+            res.status(404).json( 'User not found' );
         }
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Internal Server Error' });
+        res.status(500).json( 'Internal Server Error' );
     }
 };
 
@@ -195,11 +195,11 @@ const UpdateUser = async (req, res) => {
                 isAdmin: user.isAdmin,
             });
         } else {
-            res.status(404).json({ message: 'User not found' });
+            res.status(404).json('User not found' );
         }
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Internal Server Error' });
+        res.status(500).json( 'Internal Server Error' );
     }
 };
 
