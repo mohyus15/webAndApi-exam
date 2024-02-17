@@ -1,0 +1,73 @@
+.sidebar {
+    background-color: #f0f0f0;
+    padding: 20px;
+    width: 250px;
+    height: 100%;
+    border-right: 1px solid #ccc;
+  }
+  
+  .sidebar-heading {
+    margin-bottom: 10px;
+  }
+  
+  .user-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .user-item {
+    padding: 8px 10px; /* Fixed typo in padding */
+    cursor: pointer;
+  }
+  
+  .user-item:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .message-container {
+    flex: 1;
+    padding: 20px;
+    display: flex; /* Use flexbox for message container */
+    flex-direction: column; /* Arrange messages in a column */
+  }
+  
+  .message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .user-message {
+    background-color: #eff7ff; /* Adjusted color for user's messages */
+  }
+  
+  .input-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .message-textarea {
+    flex: 1;
+    margin-right: 10px;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .send-button {
+    height: 100%;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .send-button:hover {
+    background-color: #0056b3;
+  }
+  

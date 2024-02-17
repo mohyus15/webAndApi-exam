@@ -9,6 +9,8 @@ const UserTable = () => {
   const [users, setUsers] = useState([]);
   const { dispatch } = useContext(authContext);
 
+  
+
   useEffect(() => {
     fetch('http://localhost:8080/api/users')
       .then((response) => response.json())

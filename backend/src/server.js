@@ -12,8 +12,6 @@ const server = http.createServer(app);
 
 
 /*
-
-
 io.on('connection', (socket) => {
   console.log('a user connected', socket.id);
 });

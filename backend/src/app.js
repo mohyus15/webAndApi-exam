@@ -10,7 +10,6 @@ const NODE_ENV = "production";
 //manger roles
 const productRouter = require('./routers/productRouter.js');
 const userRouters = require('./routers/userRouters.js');
-const ChatRoute = require('./routers/ChatRoute.js');
 const MessageRoute = require('./routers/MessageRoute.js');
 
 
@@ -31,7 +30,6 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(bodyParser.json());
 app.use("/api/products", productRouter);
 app.use("/api/users", userRouters);
-app.use('/api/chat', ChatRoute)
 app.use('/api/message', MessageRoute)
 
   app.use(express.static(path.join(__dirname, "/frontend/build")));

@@ -1,0 +1,87 @@
+.message-container {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Align items to the end */
+}
+
+.message-box {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.message-textarea {
+  flex: 1;
+  margin-right: 10px;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.send-button {
+  height: 100%;
+  padding: 0px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background-color: #0056b3;
+}
+
+.sent-message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #007bff;
+  border-radius: 10px;
+  background-color: #007bff;
+  color: #fff;
+  align-self: flex-end; /* Align sent messages to the right */
+  width: 20%; /* Set width to 20% */
+}
+
+.sent-message::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #007bff;
+  left: -8px;
+  top: 10px;
+}
+
+.received-message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #f0f0f0;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  color: #000;
+  align-self: flex-start; /* Align received messages to the left */
+  width: 20%; /* Set width to 20% */
+}
+
+.received-message::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #f0f0f0;
+  left: -8px;
+  top: 10px;
+}
