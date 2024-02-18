@@ -2,9 +2,8 @@ import React, { useState, useEffect, useContext, useRef } from 'react';
 import io from 'socket.io-client';
 import { authContext } from '../store/userContext';
 import './MessageForUsers.css';
-import { messages_url } from '../api/api';
 
-const BACKEND_URL = messages_url;
+const WEBSOCKET_URL = 'ws://localhost:8900';
 
 function MessageForUsers() {
   const [messages, setMessages] = useState([]);
@@ -15,24 +14,20 @@ function MessageForUsers() {
   const socketRef = useRef();
 
   useEffect(() => {
-    // Establish socket connection
-    socketRef.current = io(BACKEND_URL, { transports: ['websocket'] });
+    socketRef.current = io(WEBSOCKET_URL, { transports: ['websocket'] });
     const socket = socketRef.current;
 
     socket.on('messageFromAdmin', (message) => {
-      // Update messages state with the new message
       setMessages(prevMessages => [...prevMessages, message]);
       scrollToLatestMessage();
     });
 
     return () => {
-      // Clean up socket connection when component unmounts
       socket.disconnect();
     };
   }, []);
 
   useEffect(() => {
-    // Fetch initial messages from the backend
     const fetchData = async () => {
       try {
         const response = await fetch(`http://localhost:8080/api/message/${user._id}`);
@@ -50,11 +45,10 @@ function MessageForUsers() {
   }, [user._id]);
 
   useEffect(() => {
-    // Scroll to the latest message whenever messages state changes
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  const sendMessage = (messageText) => {
+  const sendMessage = async (messageText) => {
     if (messageText.trim() !== '') {
       const data = {
         chatId: user._id,
@@ -62,15 +56,33 @@ function MessageForUsers() {
         text: messageText.trim() 
       };
 
-      const socket = socketRef.current;
-      socket.emit('sendMessage', data);
+      try {
+        // Send message data to the backend API
+        const response = await fetch('http://localhost:8080/api/message', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+        
+        if (!response.ok) {
+          throw new Error('Failed to send message');
+        }
 
-      // No need to wait for backend response to update UI
-      setMessages(prevMessages => [...prevMessages, data]);
-      scrollToLatestMessage();
+        // Emit the message to the WebSocket server
+        const socket = socketRef.current;
+        socket.emit('sendMessage', data);
 
-      // Clear input field after sending message
-      setNewMessage('');
+        // No need to wait for backend response to update UI
+        setMessages(prevMessages => [...prevMessages, data]);
+        scrollToLatestMessage();
+
+        // Clear input field after sending message
+        setNewMessage('');
+      } catch (error) {
+        console.error('Error sending message:', error);
+      }
     }
   };
 
