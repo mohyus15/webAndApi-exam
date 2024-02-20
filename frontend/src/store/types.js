@@ -1,7 +1,8 @@
-export const get_products = 'get_products'
-export const create_products = 'create_products'
-export const delete_products = 'delete_products'
-export const update_products = 'update_products'
+export const GET_ARTICLE = 'GET_ARTICLE'
+export const CREATE_ARTICLE = 'CREATE_ARTICLE'
+export const DELETE_ARTICLE = 'DELETE_ARTICLE'
+export const UPDATE_ARTICLE = 'UPDATE_ARTICLE'
+
 
 export const login = 'login'
 export const loggout = 'LOGOUT'

@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import io from 'socket.io-client';
-
+import { authContext } from '../store/userContext';
+import { articleContext } from '../store/ArticleContextProvider';
+import {CREATE_ARTICLE } from '../store/types';
 function CreateArticle() {
+  const { user } = useContext(authContext);
+  const { dispatch } = useContext(articleContext);
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const [article, setArticle] = useState({
@@ -44,7 +48,7 @@ function CreateArticle() {
       });
       const data = await response.json();
       if (response.ok) {
-        alert('Article created successfully');
+        dispatch({ type: CREATE_ARTICLE, payload: data });
         navigate('/');
         const socket = io('http://localhost:8900', {
           transports: ['websocket', 'polling'],
@@ -102,14 +106,18 @@ function CreateArticle() {
         <div style={{ marginBottom: '15px' }}>
           <label htmlFor="name" style={{ display: 'block', marginBottom: '5px' }}>Name:</label>
           <input
-            type="text"
-            id="name"
-            name="name"
-            value={article.name}
-            onChange={handleChange}
-            style={{ width: '100%', padding: '10px', fontSize: '16px', borderRadius: '5px', border: '1px solid #ccc' }}
-            placeholder="Enter name..."
-          />
+  type="text"
+  id="name"
+  name="name"
+  value={article.name}
+  onChange={handleChange}
+  style={{ width: '100%', padding: '10px', fontSize: '16px', borderRadius: '5px', border: '1px solid #ccc' }}
+  placeholder="Enter name (optional)..."
+/>
+
+
+
+
         </div>
         {error && <div style={{ marginBottom: '15px', color: 'red' }}>{error}</div>}
         <button type="submit" style={{ backgroundColor: '#007bff', color: '#fff', padding: '10px 20px', fontSize: '16px', borderRadius: '5px', border: 'none', cursor: 'pointer' }}>Add</button>

@@ -6,16 +6,20 @@ import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.css";
 import { BrowserRouter } from 'react-router-dom';
 import {MainContextProvider} from './store/MainContextProvider';
+import { ArticleContextProvider } from './store/ArticleContextProvider';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <ArticleContextProvider>  
     <MainContextProvider>  
     <BrowserRouter>
     <App />
     </BrowserRouter>
     </MainContextProvider>
+    </ArticleContextProvider>
   </React.StrictMode>
 );
 

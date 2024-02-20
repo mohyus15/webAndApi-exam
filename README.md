@@ -43,14 +43,14 @@ the admin can see admin dashbord i can create prod , can also see all users, del
 if you want see i have some of the users is admin just go to backend src/seedData/users.
 
 1:
-  email: admin@hotmail.com
+  name: admin
   password: 123456
  
 2: 
-  email: sensur@hotmail.com
+  name: sensur
   password: 123456
 3:
-  email: Bogdan@hotmail.com
+  name: Bogdan
   password: 123456
 
 
@@ -65,5 +65,26 @@ docker:
 AWS:
  I have decided to deploy this application to an AWS EC2 instance.
  i am using docker to deploy this application AWS.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

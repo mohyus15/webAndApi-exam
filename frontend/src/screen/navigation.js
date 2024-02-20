@@ -44,15 +44,14 @@ function Navigation() {
 
         {user && user.isAdmin && (
           <div className="admin-menu">
-            <span className="email">{user.email}</span>
+            <span className="email">{user.name}</span>
             <div className="dropdown" title="Lists" id="adminMenu">
               <button className="dropbtn">Admin Menu</button>
               <div className="dropdown-content">
+              <Link to="/components/ArtclesForEachUser">YourArticles</Link>
+
                 <Link to="/userslist">
                   <FaUsers /> User List
-                </Link>
-                <Link to="/productListAdmin">
-                  <FaList /> Product List
                 </Link>
                 <Link to="/admin/createArticle">
                   <FaPlus /> Create news Article
@@ -75,14 +74,12 @@ function Navigation() {
               {notificationCount > 0 && <span style={{ position: 'absolute', top: '-10px', right: '-10px', backgroundColor: 'red', borderRadius: '50%', padding: '5px', color: 'white', fontSize: '12px' }}>{notificationCount}</span>}
             </Link>
             <span className="email">
-              {user.email}
+              {user.name}
             </span>
             <div className="dropdown" title="Lists" id="adminMenu">
               <button className="dropbtn">menu</button>
               <div className="dropdown-content">
-                <Link to="/components/Anonse">
-                  Anonse
-                </Link>
+        
                 <Link to="/components/profile">
                   your profile
                 </Link>

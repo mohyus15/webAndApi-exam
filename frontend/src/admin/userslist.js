@@ -46,7 +46,6 @@ const UserTable = () => {
         <thead>
           <tr>
             <th>Name</th>
-            <th>Email</th>
             <th>Update</th>
             <th>Delete</th>
           </tr>
@@ -55,7 +54,6 @@ const UserTable = () => {
           {users.map((user) => (
             <tr key={user._id}>
               <td>{user.name}</td>
-              <td>{user.email}</td>
               <td>
                 <UpdateButton userId={user._id} onUpdate={handleUpdate} />
               </td>

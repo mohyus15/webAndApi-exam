@@ -9,7 +9,6 @@ const SignUp = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     password: '',
   });
 
@@ -31,7 +30,6 @@ const SignUp = () => {
         },
         body: JSON.stringify({
           name: formData.name,
-          email: formData.email,
           password: formData.password,
         }),
       });
@@ -68,25 +66,6 @@ const SignUp = () => {
             id="name"
             name="name"
             value={formData.name}
-            onChange={handleChange}
-            required
-            style={{
-              padding: "8px",
-              width: "100%",
-              boxSizing: "border-box",
-              border: "1px solid #ccc",
-              borderRadius: "4px",
-              fontSize: "14px"
-            }}
-          />
-        </div>
-        <div className="form-group" style={{ marginBottom: "15px" }}>
-          <label htmlFor="email" style={{ fontWeight: "bold", marginBottom: "5px" }}>Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
             onChange={handleChange}
             required
             style={{

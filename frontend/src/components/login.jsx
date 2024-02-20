@@ -8,7 +8,7 @@ function Login() {
   const { dispatch } = useContext(authContext);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    email: '',
+    name: '',
     password: '',
   });
   const [error, setError] = useState(null);
@@ -27,7 +27,7 @@ function Login() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          email: formData.email,
+          name: formData.name,
           password: formData.password,
         }),
       });
@@ -59,12 +59,12 @@ function Login() {
     }}>
       <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column" }} className="sign-up-form">
         <div className="form-group" style={{ marginBottom: "15px" }}>
-          <label htmlFor="email" style={{ fontWeight: "bold", marginBottom: "5px" }}>Email:</label>
+          <label htmlFor="name" style={{ fontWeight: "bold", marginBottom: "5px" }}>name:</label>
           <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
+            type="name"
+            id="name"
+            name="name"
+            value={formData.name}
             onChange={handleChange}
             required
             style={{

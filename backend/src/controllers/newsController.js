@@ -16,18 +16,23 @@ const createArticle = async (req, res) => {
 
 
 const deleteArticle = async (req, res) => {
-  const product = await News.findById(req.params.id);
-  if (product) {
-    await Product.deleteOne({ _id: product._id });
-    res.status(200).json({ message: 'user deleted wa successfully' });
-  } else {
-    res.status(404);
-    throw new Error('user not found');
+  try {
+      const news = await News.findById(req.params.id);
+      if (news) {
+          await News.deleteOne({ _id: news._id });
+          res.status(200).json({ message: 'Article deleted successfully' });
+      } else {
+          res.status(404).json({ message: 'Article not found' });
+      }
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal Server Error' });
   }
 };
 
+
 const  getArticles = async (req, res) => {
-  const numberOfPages = 10;
+  const numberOfPages = 15;
   const page = Number(req.query.pageNumber) || 1;
   const keyword = req.query.keyword
     ? {

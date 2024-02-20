@@ -5,7 +5,6 @@ import { login } from './types'
 
 export const  MainContextProvider = ({children}) => {
     const [state, dispatch] = useReducer(MainReducer, {
-        products: null,
         user: null
     })
     useEffect(() => {
