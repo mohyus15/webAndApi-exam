@@ -12,12 +12,9 @@ RUN npm run install-backend --only=production && npm run install-frontend --only
 COPY frontend/ frontend/
 COPY backend/ backend/
 
-# Build frontend
 RUN npm run build --prefix frontend
 
 USER node
-
-# Adjust the CMD to correctly run the backend server
 CMD ["node", "backend/src/server.js"]
 
 EXPOSE 8080

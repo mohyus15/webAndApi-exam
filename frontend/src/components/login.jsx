@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { authContext } from '../store/userContext';
 import { useNavigate } from "react-router-dom";
 import { login } from '../store/types';
+import GoogleLoginButton from '../GoogleLoginButton';
 
 function Login() {
   const { dispatch } = useContext(authContext);
@@ -99,6 +100,7 @@ function Login() {
       
         <button type="submit" style={{ backgroundColor: "#4caf50", color: "#fff", padding: "10px", border: "none", borderRadius: "4px", cursor: "pointer" }}>Login</button>
         <Link to="/signup" style={{ marginTop: "10px", textAlign: "center", textDecoration: "none", color: "#007bff", display: "block" }}>Create an account</Link>
+        <GoogleLoginButton/>
         {error && <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>} 
       </form>
     </div>

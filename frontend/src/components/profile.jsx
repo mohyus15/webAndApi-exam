@@ -33,7 +33,8 @@ function Profile() {
       {user ? (
         <div>
           <p>Welcome, {user.name}!</p>
-          <p>you Admin: {user?.isAdmin}</p>
+          <p>you are Admin or: {user?.isAdmin}</p>
+          <p>you are Admin or: {user?.email}</p>
           <p>you ID: {user._id}</p>
           {showUpdateForm ? (
             <UserProfile  onUpdate={handleProfileUpdate}  />

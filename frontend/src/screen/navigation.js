@@ -2,12 +2,12 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLogout } from '../components/logout';
 import { authContext } from '../store/userContext';
-import { FaUsers, FaList, FaPlus, FaInbox } from 'react-icons/fa';
+import { FaUsers,  FaPlus, FaInbox } from 'react-icons/fa';
 import { IoIosNotifications } from "react-icons/io";
 import io from 'socket.io-client';
 
 function Navigation() {
-  const { user } = useContext(authContext);
+  const { user} = useContext(authContext);
   const { logout } = useLogout();
   const [notificationCount, setNotificationCount] = useState(0);
 

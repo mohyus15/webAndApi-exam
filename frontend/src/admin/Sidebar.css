@@ -16,7 +16,7 @@
   }
   
   .user-item {
-    padding: 8px 10px; /* Fixed typo in padding */
+    padding: 8px 10px;
     cursor: pointer;
   }
   
@@ -27,8 +27,8 @@
   .message-container {
     flex: 1;
     padding: 20px;
-    display: flex; /* Use flexbox for message container */
-    flex-direction: column; /* Arrange messages in a column */
+    display: flex; 
+    flex-direction: column; 
   }
   
   .message {
@@ -39,7 +39,7 @@
   }
   
   .user-message {
-    background-color: #eff7ff; /* Adjusted color for user's messages */
+    background-color: #eff7ff;
   }
   
   .input-container {

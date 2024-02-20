@@ -1,9 +1,9 @@
-1: npm install first in root of the project
-2: npm run dev, make sure to use 3000 port in frontend 
-3: npm run deploy , make use http://localhost:8080/ as localhost in the browser, the reason when run npm run deploy the backend is building first and frotend.
 
 
-This project is consist of several dependencies and they all listet here both frontend and backend here:
+1: npm install for the først gange last ned i projekten i root av projekten.
+2: npm run dev, for kjøre helle projekten både socket backend og frontend.
+3: npm run deploy ,den brukker du når du skal deploy for eksamepel http://localhost:8080/ 
+Dette prosjektet består av flere avhengigheter, og de er alle oppført her både for frontend og backend:
 backend:
     bcryptjs
     body-parser
@@ -27,21 +27,16 @@ frontend:
     socket.io-client
     timeago.js
     react-contex-api
+Socket:
+   nodemon,
+   socket.io
 
- there is many wyas to start for this application:
- 1: cd backend/src/ 
-     node server.js.
- 2: cd frontend/
-     npm start.
-3:  in the root of the project you can write, npm run dev
-    to start the whole application in one command. npm run dev. 
 
-4:  npm run deploy with 8080 port 
+Adminbrukere kan se admin-dashboardet, opprette users, se alle brukere, slette og oppdatere brukere.
+Hvis du vil se noen av brukerne som er administratorer, kan du gå til backend src/seedData/users og src/seedData/news for se for hvordan jeg har laget.
 
-admin users you can lgon as adminstrator are listed here.
-the admin can see admin dashbord i can create prod , can also see all users, delete and update users.
-if you want see i have some of the users is admin just go to backend src/seedData/users.
 
+disse er brukker some er admin
 1:
   name: admin
   password: 123456
@@ -52,15 +47,12 @@ if you want see i have some of the users is admin just go to backend src/seedDat
 3:
   name: Bogdan
   password: 123456
-
-
-How is my website works:
-
-
-
-
+brukken kan også login med Google for å se lese hele artikkelen,og brukken can see profilen sin.
 
 docker:
+
+Denne Dockerfile setter opp et Docker-bilde som inneholder en Node.js-applikasjon med både frontend- og backend-delen. Den bygger på et lettvektsmiljø (Alpine Linux) og installerer avhengigheter for både frontend og backend. Etter å ha kopiert kildekoden, bygger den frontend-delen av applikasjonen. Til slutt konfigurerer den oppstartskommandoen for å kjøre serveren, og eksponerer port 8080.
+
 
 AWS:
  I have decided to deploy this application to an AWS EC2 instance.
@@ -68,13 +60,15 @@ AWS:
 
 
 
+ bilder av netsiden
+ FØRST SIDEN
+
+
+hvis kunden lage logget inn  can bruken kan lese hele artikkelen.
 
 
 
-
-
-
-
+admin kan snakke med alle some registred i den netsiden og kunden can chatte med admin brukker begge brukker socket.io some bilden viser 
 
 
 

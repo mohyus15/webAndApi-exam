@@ -8,7 +8,6 @@ import Signup from './components/signup'
 import HomePage from './components/home';
 import Userslist from './admin/userslist'
 import PrivatRouters from './components/PrivatRouters';
-import Anonse from './components/Anonse'
 import Profile from './components/profile'
 import Message from './admin/Message';
 import MessageForUsers from './components/MessageForUsers';
@@ -16,6 +15,7 @@ import UpdateUser from './admin/update';
 import ArticleDetails from './components/ArticleDetails';
 import Notifications from './components/Notifications';
 import ArtclesForEachUser from './components/ArtclesForEachUser';
+
 function App() {
   return (
     <>
@@ -29,7 +29,6 @@ function App() {
 
      private router
      <Route path="" element={<PrivatRouters />}>
-     <Route path="/components/Anonse" element={<Anonse />}/>
     <Route path="/components/profile"element={<Profile/>}/>
     <Route path="/components/MessageForUsers"element={<MessageForUsers/>}/>
     <Route path="/components/ArticleDetails/:newsItemId" element={<ArticleDetails />} />

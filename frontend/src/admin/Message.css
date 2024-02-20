@@ -3,7 +3,7 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Align items to the end */
+  justify-content: flex-end;
 }
 
 .message-box {
@@ -47,8 +47,8 @@
   border-radius: 10px;
   background-color: #007bff;
   color: #fff;
-  align-self: flex-end; /* Align sent messages to the right */
-  width: 20%; /* Set width to 20% */
+  align-self: flex-end; 
+  width: 20%; 
 }
 
 .sent-message::after {
@@ -70,8 +70,8 @@
   border-radius: 10px;
   background-color: #f0f0f0;
   color: #000;
-  align-self: flex-start; /* Align received messages to the left */
-  width: 20%; /* Set width to 20% */
+  align-self: flex-start; 
+  width: 20%; 
 }
 
 .received-message::after {
