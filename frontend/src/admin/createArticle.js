@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import io from 'socket.io-client';
-import { authContext } from '../store/userContext';
 import { articleContext } from '../store/ArticleContextProvider';
 import { CREATE_ARTICLE } from '../store/types';
 
 function CreateArticle() {
-  const { user } = useContext(authContext);
   const { dispatch } = useContext(articleContext);
   const navigate = useNavigate();
   const [error, setError] = useState(null);

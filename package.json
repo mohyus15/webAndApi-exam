@@ -16,7 +16,7 @@
     "deploy-cluster": "npm run build --prefix frontend && npm run cluster --prefix backend",
     "data:import": "node backend/src/seeder.js",
     "data:remove": "node backend/src/seeder.js -d",
-    "test": "npm test --prefix backend && npm test --prefix frontend",
+    "test": "concurrently \"npm test --prefix backend\" \"npm test --prefix frontend\"",
     "socket": "node socket/socket.js"
   },
   "author": "",
