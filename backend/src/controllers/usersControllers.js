@@ -55,7 +55,6 @@ const RegisterUser = async (req, res) => {
     }
 
     try {
-        // Check if user with provided email already exists
         const userExist = await User.findOne({ email });
 
         if (userExist) {

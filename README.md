@@ -1,4 +1,9 @@
-this project is consist of several dependencies and they all listet here both frontend and backend here:
+1: npm install first in root of the project
+2: npm run dev, make sure to use 3000 port in frontend 
+3: npm run deploy , make use http://localhost:8080/ as localhost in the browser, the reason when run npm run deploy the backend is building first and frotend.
+
+
+This project is consist of several dependencies and they all listet here both frontend and backend here:
 backend:
     bcryptjs
     body-parser

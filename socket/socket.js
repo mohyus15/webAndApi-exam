@@ -16,7 +16,6 @@ io.on("connection", (socket) => {
   console.log("a user connected", socket.id);
 
   socket.on("userConnected", (userId) => {
-    // Store connected user
     users[userId] = socket.id;
     console.log("User connected:", userId);
   });
@@ -47,9 +46,15 @@ io.on("connection", (socket) => {
     }
   });
 
+  socket.on("createNewArticle", () => {
+    io.emit("New article created");
+  });
+  
+
+  
+
   socket.on("disconnect", () => {
     console.log("user disconnected", socket.id);
-    // Remove disconnected user/admin from stored data
     const userId = Object.keys(users).find((key) => users[key] === socket.id);
     if (userId) {
       delete users[userId];

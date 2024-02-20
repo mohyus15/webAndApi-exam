@@ -22,6 +22,10 @@ function MessageForUsers() {
       scrollToLatestMessage();
     });
 
+    socket.on('typingIndicator', ({ userId, isTyping }) => {
+      console.log(`User ${userId} is typing: ${isTyping}`);
+    });
+
     return () => {
       socket.disconnect();
     };
@@ -48,12 +52,22 @@ function MessageForUsers() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  const sendMessage = async (messageText) => {
-    if (messageText.trim() !== '') {
+  const handleTyping = () => {
+    // Send typing indicator to the WebSocket server
+    socketRef.current.emit('typingIndicator', { userId: user._id, isTyping: true });
+
+    // Set a timeout to send another indicator after a certain period of inactivity (e.g., 1 second)
+    setTimeout(() => {
+      socketRef.current.emit('typingIndicator', { userId: user._id, isTyping: false });
+    }, 1000);
+  };
+
+  const sendMessage = async () => {
+    if (newMessage.trim() !== '') {
       const data = {
         chatId: user._id,
         senderId: user._id,
-        text: messageText.trim() 
+        text: newMessage.trim() 
       };
 
       try {
@@ -119,7 +133,8 @@ function MessageForUsers() {
             if (e.key === 'Enter') {
               sendMessage(e.target.value);
             }
-          }} 
+          }}
+          onInput={handleTyping} 
         />
         <button onClick={() => sendMessage(newMessage)}>Send</button>
       </div>

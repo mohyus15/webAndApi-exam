@@ -2,7 +2,7 @@ import './App.css';
 import Navbar from "../src/screen/navigation"
 import { Route, Routes } from 'react-router-dom';
 import AdminPrivatRouters from './admin/AdminPrivatRouters'
-import CreateProduct from './admin/createProduct'
+import CreateArticle from './admin/createArticle'
 import Login from './components/login'
 import Signup from './components/signup'
 import HomePage from './components/home';
@@ -14,6 +14,8 @@ import Profile from './components/profile'
 import Message from './admin/Message';
 import MessageForUsers from './components/MessageForUsers';
 import UpdateUser from './admin/update'; 
+import ArticleDetails from './components/ArticleDetails'
+import Notifications from './components/Notifications'
 
 function App() {
   return (
@@ -31,26 +33,22 @@ function App() {
      <Route path="/components/Anonse" element={<Anonse />}/>
     <Route path="/components/profile"element={<Profile/>}/>
     <Route path="/components/MessageForUsers"element={<MessageForUsers/>}/>
+    <Route path="/components/ArticleDetails/:newsItemId" element={<ArticleDetails />} />
+    <Route path="/components/Notifications" element={< Notifications/>} />
 
 
-   
 
-
+  
      </Route>
-
      admin router
      <Route path="" element={<AdminPrivatRouters />}>
-     <Route path="/admin/createProduct" element={<CreateProduct />}/>
+     <Route path="/admin/createArticle" element={<CreateArticle />}/>
 
      <Route path="/userslist" element={<Userslist />}/>
      <Route path="/productListAdmin" element={<ProductListAdmin />}/>
      <Route path="/admin/Message"element={<Message/>}/>
      <Route path="/update/:userId" element={<UpdateUser />} />
-
-     
      </Route>
-  
-
      </Routes>
     </div>
     

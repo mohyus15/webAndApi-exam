@@ -3,7 +3,6 @@ import io from 'socket.io-client';
 import './Message.css';
 import Sidebar from './Sidebar';
 import { authContext } from '../store/userContext';
-
 const socket = io('http://localhost:8900', { transports: ['websocket'] });
 
 function Message() {

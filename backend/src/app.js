@@ -8,7 +8,7 @@ const NODE_ENV = "production";
 
 
 //manger roles
-const productRouter = require('./routers/productRouter.js');
+const newsRouter = require('./routers/newsRouter.js');
 const userRouters = require('./routers/userRouters.js');
 const MessageRoute = require('./routers/MessageRoute.js');
 
@@ -28,7 +28,7 @@ app.use(morgan("combined"));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(bodyParser.json());
-app.use("/api/products", productRouter);
+app.use("/api/news", newsRouter);
 app.use("/api/users", userRouters);
 app.use('/api/message', MessageRoute)
 

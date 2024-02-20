@@ -1,15 +1,15 @@
 const seederUsers = require("./seedData/users.js");
-const { seederProducts } = require("./seedData/product.js");
+const { seederNews } = require("./seedData/news.js");
 
-const { mangoConnect } = require("./utils/database.js");
+const { mongooseConnect } = require("./utils/database.js");
 const dotenv = require("dotenv").config();
 
-const Product = require("./models/productModels.js");
+const Product = require("./models/newsModels.js");
 const User = require("./models/usersModel.js");
 
 const importData = async () => {
   try {
-    await mangoConnect();
+    await mongooseConnect();
 
     await Product.deleteMany();
     await User.deleteMany();
@@ -18,11 +18,11 @@ const importData = async () => {
 
     const adminUser = createdUsers[0].id;
 
-    const sampleProducts = seederProducts.map((product) => {
+    const sampleNews = seederNews.map((product) => {
       return { ...product, user: adminUser };
     });
 
-    await Product.insertMany(sampleProducts);
+    await Product.insertMany(sampleNews);
 
     console.log("Data Imported!");
     process.exit();
@@ -34,7 +34,7 @@ const importData = async () => {
 
 const deleteData = async () => {
   try {
-    await mangoConnect();
+    await mongooseConnect();
 
     await Product.deleteMany();
     await User.deleteMany();
