@@ -21,7 +21,7 @@
   "scripts": {
     "test": "jest --coverage --passWithNoTests",
     "start": "react-scripts start",
-    "build": "BUILD_PATH=../backend/public react-scripts build"
+    "build": "NODE_OPTIONS=--max-old-space-size=4096 BUILD_PATH=../backend/public react-scripts build"
   },
   "eslintConfig": {
     "extends": [
