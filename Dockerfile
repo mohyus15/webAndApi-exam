@@ -1,17 +1,21 @@
-# Use the official Node.js image with Alpine variant
 FROM node:lts-alpine
 
-# Set the working directory inside the container
 WORKDIR /app
 
-# Copy package files to the working directory
 COPY package*.json ./
+COPY frontend/package*.json frontend/
+COPY backend/package*.json backend/
 
-RUN npm install 
 
-COPY . .
+RUN npm run install-backend --only=production && npm run install-frontend --only=production && npm install --prefix frontend @babel/plugin-proposal-private-property-in-object
 
+COPY frontend/ frontend/
+COPY backend/ backend/
+
+RUN npm run build --prefix frontend
+
+USER node
+CMD ["node", "backend/src/server.js"]
 
 EXPOSE 8080
 
-CMD ["node", "server.js"]

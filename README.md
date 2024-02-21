@@ -57,7 +57,7 @@ Denne Dockerfile setter opp et Docker-bilde som inneholder en Node.js-applikasjo
 Render:
  jeg har prøvde å deploy til Heroko, men den koster penger, jeg tenkte å deploy til Render, jeg hadde problem med sette mongoDb url, og deform, vil jeg ikke se list med nyher artikkelene.
  detter er url til min netside
-  https://webandapi-exam-oslo-times2024.onrender.com/.
+ 
 
 
  bilder av netsiden
