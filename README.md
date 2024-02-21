@@ -1,9 +1,10 @@
 
-
+ 
 1: npm install for the først gange last ned i projekten i root av projekten.
-2: npm run dev, for kjøre helle projekten både socket backend og frontend.
-3: npm run deploy ,den brukker du når du skal deploy for eksamepel http://localhost:8080/ 
-4: npm run test
+2: npm run dev, for kjøre helle projekten både socket backend og frontend. 
+bruke http://localhost:8080/ for see netsiden.
+
+3: npm run test
 
 Dette prosjektet består av flere avhengigheter, og de er alle oppført her både for frontend og backend:
 backend:
