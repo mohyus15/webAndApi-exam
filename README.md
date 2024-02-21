@@ -59,16 +59,20 @@ Denne Dockerfile setter opp et Docker-bilde som inneholder en Node.js-applikasjo
 Render:
  jeg har prøvde å deploy til Heroko, men den koster penger, jeg tenkte å deploy til Render, jeg hadde problem med sette mongoDb url, og deform, vil jeg ikke se list med nyher artikkelene.
  detter er url til min netside
+ bruke: npm run dev, og start den url.
  https://webandapi-exam2024.onrender.com.
  på grunn av mongoDB url for ikke vise artikkelen.
-
 
  bilder av netsiden
  FØRST SIDEN
 
-
+![Screenshot 2024-02-21 at 06 32 33](https://github.com/mohyus15/webAndApi-exam/assets/94177387/67a1d599-cd46-44fc-85d2-ba874930e667)
+ 
 
 hvis kunden lage logget inn  can bruken kan lese hele artikkelen.
+
+
+![Screenshot 2024-02-21 at 06 33 23](https://github.com/mohyus15/webAndApi-exam/assets/94177387/58f3eee4-3a91-4b96-a7c5-37100eae8ec7)
 
 
 admin kan snakke med alle some registred i den netsiden og kunden can chatte med admin brukker begge brukker socket.io some bilden viser 
