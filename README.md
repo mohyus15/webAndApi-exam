@@ -68,11 +68,13 @@ Render:
 
 hvis kunden lage logget inn  can bruken kan lese hele artikkelen.
 
+![Screenshot 2024-02-20 at 23 31 16](https://github.com/mohyus15/webAndApi-exam/assets/94177387/71d414a4-f59d-4c0e-8f98-b7d87cb1a2a4)
 
 
 admin kan snakke med alle some registred i den netsiden og kunden can chatte med admin brukker begge brukker socket.io some bilden viser 
 
 
+![Screenshot 2024-02-20 at 23 36 01](https://github.com/mohyus15/webAndApi-exam/assets/94177387/d69ec13f-b7b7-4902-b6a0-99fe2b9c5571)
 
 
 
@@ -83,8 +85,10 @@ admin kan snakke med alle some registred i den netsiden og kunden can chatte med
 
 github action for my code;
 https://github.com/mohyus15/webAndApi-exam/actions.
+<img width="1254" alt="Screenshot 2024-02-21 at 05 23 55" src="https://github.com/mohyus15/webAndApi-exam/assets/94177387/78871f3c-eeed-43cb-b8b7-4b51db99d8a0">
 
 
+![Screenshot 2024-02-20 at 23 36 01](https://github.com/mohyus15/webAndApi-exam/assets/94177387/31da267f-5ac8-4728-b0a4-2ccbe96e9e75)
 
 
 
