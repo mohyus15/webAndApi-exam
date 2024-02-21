@@ -3,6 +3,8 @@
 1: npm install for the først gange last ned i projekten i root av projekten.
 2: npm run dev, for kjøre helle projekten både socket backend og frontend.
 3: npm run deploy ,den brukker du når du skal deploy for eksamepel http://localhost:8080/ 
+4: npm run test
+
 Dette prosjektet består av flere avhengigheter, og de er alle oppført her både for frontend og backend:
 backend:
     bcryptjs
@@ -57,7 +59,8 @@ Denne Dockerfile setter opp et Docker-bilde som inneholder en Node.js-applikasjo
 Render:
  jeg har prøvde å deploy til Heroko, men den koster penger, jeg tenkte å deploy til Render, jeg hadde problem med sette mongoDb url, og deform, vil jeg ikke se list med nyher artikkelene.
  detter er url til min netside
- 
+ https://webandapi-exam2024.onrender.com.
+ på grunn av mongoDB url for ikke vise artikkelen.
 
 
  bilder av netsiden
@@ -70,15 +73,10 @@ hvis kunden lage logget inn  can bruken kan lese hele artikkelen.
 
 
 
+
+
+
 admin kan snakke med alle some registred i den netsiden og kunden can chatte med admin brukker begge brukker socket.io some bilden viser 
-
-
-
-
-
-
-
-
 
 
 github action for my code;
