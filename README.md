@@ -72,9 +72,7 @@ Render:
 hvis kunden lage logget inn  can bruken kan lese hele artikkelen.
 
 
-
 admin kan snakke med alle some registred i den netsiden og kunden can chatte med admin brukker begge brukker socket.io some bilden viser 
-
 
 github action for my code;
 https://github.com/mohyus15/webAndApi-exam/actions.
