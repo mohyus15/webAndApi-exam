@@ -11,8 +11,7 @@ mongoose.connection.on('error', async err => {
 });
 
 const mongooseConnect = async () => {
-    await mongoose.connect("mongodb+srv://mohyus20:OGH2RHHNWhlZXHeQ@db.6tlp7p3.mongodb.net/webAndApi?retryWrites=true&w=majority",
-     { useNewUrlParser: true, useUnifiedTopology: true });
+    await mongoose.connect("mongodb+srv://mohyus20:OGH2RHHNWhlZXHeQ@db.6tlp7p3.mongodb.net/webAndApi?retryWrites=true&w=majority");
 
     mongoose.set('strictQuery', true);
 };
