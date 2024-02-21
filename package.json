@@ -24,7 +24,8 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "npm-watch": "^0.11.0",
-    "react-google-login": "^5.2.2"
+    "react-google-login": "^5.2.2",
+    "socket.io": "^4.7.4"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
