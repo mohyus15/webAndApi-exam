@@ -54,14 +54,16 @@ docker:
 Denne Dockerfile setter opp et Docker-bilde som inneholder en Node.js-applikasjon med både frontend- og backend-delen. Den bygger på et lettvektsmiljø (Alpine Linux) og installerer avhengigheter for både frontend og backend. Etter å ha kopiert kildekoden, bygger den frontend-delen av applikasjonen. Til slutt konfigurerer den oppstartskommandoen for å kjøre serveren, og eksponerer port 8080.
 
 
-AWS:
- I have decided to deploy this application to an AWS EC2 instance.
- i am using docker to deploy this application AWS.
-
+Render:
+ jeg har prøvde å deploy til Heroko, men den koster penger, jeg tenkte å deploy til Render, jeg hadde problem med sette mongoDb url, og deform, vil jeg ikke se list med nyher artikkelene.
+ detter er url til min netside
+  https://webandapi-exam-oslo-times2024.onrender.com/.
 
 
  bilder av netsiden
  FØRST SIDEN
+
+
 
 
 hvis kunden lage logget inn  can bruken kan lese hele artikkelen.
@@ -72,6 +74,15 @@ admin kan snakke med alle some registred i den netsiden og kunden can chatte med
 
 
 
+
+
+
+
+
+
+
+github action for my code;
+https://github.com/mohyus15/webAndApi-exam/actions.
 
 
 
