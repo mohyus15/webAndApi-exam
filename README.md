@@ -1,4 +1,4 @@
-
+Kandidatnr.:	34
  
 1: npm install for the først gange last ned i projekten i root av projekten.
 2: npm run dev, for kjøre helle projekten både socket backend og frontend. 
